@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" > -->
+    
+    <link rel="icon" type="image/png" href="static/img/favicon.png" />
+
+    <title>EtherCheck</title>
+
+    <!-- CSS -->
+    <link href="static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="static/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="static/css/animate.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default ">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"  href="#">EtherCheck</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-success pull-right">Dollar</span>
+                        <h4>Cours</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="no-margins">$296.56</h1>
+                        <div class="text-success">+4% <i class="fa fa-bolt"></i></div>
+                        <small>Increasing</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-info pull-right">Euros</span>
+                        <h4>Cours</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="no-margins">257.30€</h1>
+                        <div class="text-info">+2% <i class="fa fa-level-up"></i></div>
+                        <small>Increasing</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Transactions du jour</h4>
+                    </div>
+                    
+                    <div class="panel-body">                        
+                            
+                        <h1 class="no-margins">206,120 €</h1>
+                        <div>22% <i class="fa fa-level-up"></i></div>                            
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-primary pull-right">Mis à jour à 12h40 <i class="fa fa-clock-o"></i></span>
+                        <h5>Cours de l'Ether</h5>
+                    </div>
+                    <div class="panel panel-body">
+                        <div>
+                            <canvas id="lineChart" height="114"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">
+                        <h5>Historique des transactions</h5>
+                    </div>
+                    <div class="panel panel-body">               
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#BlockNumber</th>
+                                    <th>Date</th>
+                                    <th>Miner</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Oct 27, 2017</td>
+                                    <td>Achille</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Oct 26, 2017</td>
+                                    <td>Antoine</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <strong>Copyright</strong> Carossio-Nazaret &copy; 2017
+    </div>
+    
+
+</body>
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="static/js/chartJs/Chart.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+
+            var data = {
+                labels: ["Oct 21", "Oct 22", "Oct 23", "Oct 24", "Oct 25", "Oct 26", "Oct 27"],
+                datasets: [
+                    {
+                        label: "Ethereum",
+                        backgroundColor: "rgba(243, 156, 18,0.5)",
+                        borderColor: "rgba(243, 156, 18,0.7)",
+                        pointBackgroundColor: "rgba(243, 156, 18,1)",
+                        pointBorderColor: "#fff",
+                        data: [1000, 1100, 1850, 2000, 1900, 2100, 2300]
+                    }
+                ]
+            };
+
+            var opt = {
+                responsive: true,
+                legend: {
+	                onClick: function () {},
+	               }
+            };
+
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            new Chart(ctx, {type: 'line', data: data, options:opt});
+
+        });
+    </script>
+
+
+</html>
