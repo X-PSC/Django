@@ -10,3 +10,7 @@ def home(request):
 def transactions(request):
 	transactions = Transaction.objects.all()
 	return render(request, 'transactions.html', locals())
+
+def alias(request):
+	alias = Alias.objects.all()
+	return render(request, 'alias.html', locals())

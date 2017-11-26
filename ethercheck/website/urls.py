@@ -19,4 +19,5 @@ from website import views
 urlpatterns = [
     url(r'^$', views.home, name="home"),
     url(r'^transactions$', views.transactions, name="transactions"),
+    url(r'^alias$', views.alias, name="alias")
 ]

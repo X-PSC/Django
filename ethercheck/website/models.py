@@ -12,7 +12,13 @@ class Transaction(models.Model):
 	def __str__(self):
 		return self.hashCode
 	
+class Alias(models.Model):
+	alias = models.CharField("Alias", max_length=64 , default="", blank=True)
+	adresse = models.CharField("Adresse", max_length=64 , default="", blank=True)
 	
+	
+	def __str__(self):
+		return self.hashCode	
 	
 	
 	
