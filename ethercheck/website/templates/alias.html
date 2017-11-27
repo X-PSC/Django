@@ -83,26 +83,22 @@
 
                 <div class="panel panel-default">
                     <div class="panel panel-heading">
-                        <h5>Historique des transactions</h5>
+                        <h5>Liste des Alias</h5>
                     </div>
                     <div class="panel panel-body">               
                         <div class="table-responsive">
                             <table class="table table-striped" id="transactions_list">
                                 <thead>
                                     <tr>
-                                        <th>Date-Heure</th>
-                                        <th>HashCode</th>
-                                        <th>From</th>
-                                        <th>To</th>
+                                        <th>Alias</th>
+                                        <th>Adresse</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {% for t in transactions %}
+                                {% for t in alias %}
                                     <tr>
-                                        <td>{{t.date}}</td>
-                                        <td>{{t.hashCode}}</td>
-                                        <td>{{t.source}}</td>
-                                        <td>{{t.destination}}</td>
+                                        <td>{{t.alias}}</td>
+                                        <td>{{t.adresse}}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -127,19 +123,6 @@
     <script src="static/js/bootstrap/bootstrap.min.js"></script>
     <script src="static/js/chartJs/Chart.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $('#transactions_list').DataTable( {
-                "paging":   false,
-                "ordering": false,
-                "info":     false
-            } );
-
-        });
-    </script>
 
 
 </html>
