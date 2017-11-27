@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from website.models import Transaction
+from website.models import Alias
 
 # Create your views here.
 
