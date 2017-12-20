@@ -7,6 +7,9 @@ class Transaction(models.Model):
 	source = models.CharField("From", max_length=64 , default="", blank=True)
 	hashCode = models.CharField("Hash", max_length=64 , default="", blank=True)
 	destination = models.CharField("To", max_length=64 , default="", blank=True)
+	blockHash = models.CharField("BlockHash", max_length=64 , default="", blank=True)
+	blockNumber = models.IntegerField("BlockNumber", default=0)
+	montant = models.FloatField("Value", default=0)
 	
 	
 	def __str__(self):
