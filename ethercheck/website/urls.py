@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^transactions$', views.transactions, name="transactions"),
     url(r'^alias$', views.alias, name="alias"),
     url(r'^graph$', views.graph, name="graph"),
-    url(r'^graphData$', views.graphData, name="graphData")
+    url(r'^graphData$', views.graphData, name="graphData"),
+    url(r'^tauxChange$', views.tauxChange, name="tauxChange")
 ]
