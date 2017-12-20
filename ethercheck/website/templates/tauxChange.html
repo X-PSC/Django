@@ -1,38 +1,57 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
+{% block content %}
+    <div class="container">
 
-    <meta charset="utf-8">
-    <!-- <meta name="viewport" > -->
-			    
-    <link rel="icon" type="image/png" href="static/img/favicon.png" />
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-success pull-right">Dollar</span>
+                        <h4>Cours</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="no-margins">${{usd}}</h1>
+                        <div class="text-success">+4% <i class="fa fa-bolt"></i></div>
+                        <small>Increasing</small>
+                    </div>
+                </div>
+            </div>
 
-    <title>EtherCheck</title>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-info pull-right">Euros</span>
+                        <h4>Cours</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="no-margins">{{eur}}€</h1>
+                        <div class="text-info">+2% <i class="fa fa-level-up"></i></div>
+                        <small>Increasing</small>
+                    </div>
+                </div>
+            </div>
 
-    <!-- CSS -->
-    <link href="static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="static/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="static/css/animate.css" rel="stylesheet">
-    <link href="static/css/style.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="label label-success pull-right">Bitcoin</span>
+                        <h4>Cours</h4>
+                    </div>
+                    <div class="panel-body">
+                        <h1 class="no-margins">{{bit}}€</h1>
+                        <div class="text-info">+2% <i class="fa fa-level-up"></i></div>
+                        <small>Increasing</small>
+                    </div>
+                </div>
+            </div>
 
+        </div>
 
-</head>
-
-<body>
-
-    <div class="footer">
-        <strong>Copyright</strong> Carossio-Nazaret &copy; 2017
-    </div>
-					    
-
-</body>
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap/bootstrap.min.js"></script>
     <script src="static/js/chartJs/Chart.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
-
-</html>
+{% endblock %}
