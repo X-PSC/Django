@@ -20,6 +20,65 @@
 
 </head>
 
+<!-- START SIGMA IMPORTS -->
+<script src="static/js/sigma/sigma.core.js"></script>
+<script src="static/js/sigma/conrad.js"></script>
+<script src="static/js/sigma/utils/sigma.utils.js"></script>
+<script src="static/js/sigma/utils/sigma.polyfills.js"></script>
+<script src="static/js/sigma/sigma.settings.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.dispatcher.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.configurable.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.graph.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.camera.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.quad.js"></script>
+<script src="static/js/sigma/classes/sigma.classes.edgequad.js"></script>
+<script src="static/js/sigma/captors/sigma.captors.mouse.js"></script>
+<script src="static/js/sigma/captors/sigma.captors.touch.js"></script>
+<script src="static/js/sigma/renderers/sigma.renderers.canvas.js"></script>
+<script src="static/js/sigma/renderers/sigma.renderers.webgl.js"></script>
+<script src="static/js/sigma/renderers/sigma.renderers.svg.js"></script>
+<script src="static/js/sigma/renderers/sigma.renderers.def.js"></script>
+<script src="static/js/sigma/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+<script src="static/js/sigma/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+<script src="static/js/sigma/renderers/webgl/sigma.webgl.edges.def.js"></script>
+<script src="static/js/sigma/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+<script src="static/js/sigma/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.labels.def.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edges.def.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+<script src="static/js/sigma/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.utils.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.nodes.def.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.edges.def.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.edges.curve.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.labels.def.js"></script>
+<script src="static/js/sigma/renderers/svg/sigma.svg.hovers.def.js"></script>
+<script src="static/js/sigma/middlewares/sigma.middlewares.rescale.js"></script>
+<script src="static/js/sigma/middlewares/sigma.middlewares.copy.js"></script>
+<script src="static/js/sigma/misc/sigma.misc.animation.js"></script>
+<script src="static/js/sigma/misc/sigma.misc.bindEvents.js"></script>
+<script src="static/js/sigma/misc/sigma.misc.bindDOMEvents.js"></script>
+<script src="static/js/sigma/misc/sigma.misc.drawHovers.js"></script>
+<!-- END SIGMA IMPORTS -->
+<script src="static/js/sigma/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+
+<style>
+  #graph-container {
+    width: 400px;
+    height: 400px;
+    text-align: center;
+  }
+</style>
+
+
 <body>
 
     <nav class="navbar navbar-default ">
@@ -83,31 +142,10 @@
 
                 <div class="panel panel-default">
                     <div class="panel panel-heading">
-                        <h5>Historique des transactions</h5>
+                        <h5>My Graph</h5>
                     </div>
                     <div class="panel panel-body">               
-                        <div class="table-responsive">
-                            <table class="table table-striped" id="transactions_list">
-                                <thead>
-                                    <tr>
-                                        <th>Date-Heure</th>
-                                        <th>HashCode</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {% for t in transactions %}
-                                    <tr>
-                                        <td>{{t.date}}</td>
-                                        <td>{{t.hashCode}}</td>
-                                        <td>{{t.source}}</td>
-                                        <td>{{t.destination}}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
+                        <div id="graph-container"></div>
                     </div>
                 </div>
 
@@ -123,23 +161,22 @@
 
 </body>
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/bootstrap/bootstrap.min.js"></script>
-    <script src="static/js/chartJs/Chart.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $('#transactions_list').DataTable( {
-                "paging":   false,
-                "ordering": false,
-                "info":     false
-            } );
-
-        });
-    </script>
-
-
-</html>
+<script>
+/**
+ * Here is just a basic example on how to properly display a graph
+ * exported from Gephi as a JSON file, with the JSON Exporter plugin from
+ * the Oxford Internet Institute:
+ *
+ *  > https://marketplace.gephi.org/plugin/json-exporter/
+ *
+ * The plugin sigma.parsers.json can load and parse the JSON graph file,
+ * and instantiate sigma when the graph is received.
+ *
+ * The object given as the second parameter is the base of the instance
+ * configuration object. The plugin will just add the "graph" key to it
+ * before the instanciation.
+ */
+sigma.parsers.json('graphData', {
+  container: 'graph-container'
+});
+</script>
