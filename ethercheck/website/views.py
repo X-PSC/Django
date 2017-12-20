@@ -15,3 +15,9 @@ def transactions(request):
 def alias(request):
 	alias = Alias.objects.all()
 	return render(request, 'alias.html', locals())
+
+def tauxConversion(request):
+	return render(request, 'tauxConversion.html', locals())
+
+def graph(request):
+	return render(request, 'graph.html', locals())
