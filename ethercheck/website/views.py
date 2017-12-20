@@ -24,11 +24,11 @@ def graphData(request):
 	return render_to_response('graphData.json',content_type='application/json')
 
 def tauxChange(request):
-	text=json.loads(request.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR'))
-	usd=json.dumps(text)[0]["price_usd"]
-	eur=json.dumps(text)[0]["price_eur"]
-	bit=json.dumps(text)[0]["price_btc"]
-	evo_1h=json.dumps(text)[0]["percent_change_1h"]
-	evo_24h=json.dumps(text)[0]["percent_change_24h"]
-	evo_7d=json.dumps(text)[0]["percent_change_7d"]
+	changeInformation=json.loads(requests.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR').text)
+	usd=changeInformation[0]["price_usd"]
+	eur=changeInformation[0]["price_eur"]
+	bit=changeInformation[0]["price_btc"]
+	evo_1h=changeInformation[0]["percent_change_1h"]
+	evo_24h=changeInformation[0]["percent_change_24h"]
+	evo_7d=changeInformation[0]["percent_change_7d"]
 	return render(request, 'tauxChange.html', locals())
