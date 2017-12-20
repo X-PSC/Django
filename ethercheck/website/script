@@ -1,0 +1,5 @@
+from website.models import Alias
+
+b = Alias(alias='Roberto', adresse='5A6879D646EE52F200')
+
+b.save()

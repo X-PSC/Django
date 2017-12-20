@@ -21,7 +21,7 @@ def graph(request):
 	return render(request, 'graph.html', locals())
 
 def graphData(request):
-	return render_to_response('graphData.json',content_type='application/json')
+	return render_to_response('graph.gexf')
 
 def tauxChange(request):
 	changeInformation=json.loads(requests.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR').text)
