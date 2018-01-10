@@ -33,6 +33,17 @@ def tauxChange(request):
 	eur=round(float(changeInformation[0]["price_eur"]),2)
 	bit=round(float(changeInformation[0]["price_btc"]),8)
 	evo_1h=changeInformation[0]["percent_change_1h"]
+	if float(evo_1h)>0:
+		inc_1h="Increasing"
+	else:
+		inc_1h="Decreasing"
 	evo_24h=changeInformation[0]["percent_change_24h"]
+	if float(evo_24h)>0:
+		inc_24h="Increasing"
+	else:
+		inc_24h="Decreasing"
 	evo_7d=changeInformation[0]["percent_change_7d"]
-	return render(request, 'tauxChange.html', locals())
+	if float(evo_7d)>0:
+		inc_7d="Increasing"
+	else:
+		inc_7d="Decreasing"

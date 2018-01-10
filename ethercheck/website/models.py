@@ -14,6 +14,16 @@ class Transaction(models.Model):
 	
 	def __str__(self):
 		return self.hashCode
+
+class Block(models.Model):
+	blockNumber = models.IntegerField("BlockNumber", default=0)
+	blockHash = models.CharField("BlockHash", max_length=64 , default="", blank=True)
+	date = models.DateTimeField("Date")
+	reward = models.IntegerField("BlockNumber", default=0)
+	miner = models.CharField("Hash", max_length=64 , default="", blank=True)
+	
+	def __str__(self):
+		return self.hashCode
 	
 class Alias(models.Model):
 	alias = models.CharField("Alias", max_length=64 , default="", blank=True)
