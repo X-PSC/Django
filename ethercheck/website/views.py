@@ -44,6 +44,7 @@ def tauxChange(request):
 		inc_24h="Decreasing"
 	evo_7d=changeInformation[0]["percent_change_7d"]
 	if float(evo_7d)>0:
-		inc_7d="Increasing"
+	   inc_7d="Increasing"
 	else:
-		inc_7d="Decreasing"
+	   inc_7d="Decreasing"
+	return render(request, 'tauxChange.html', locals())
