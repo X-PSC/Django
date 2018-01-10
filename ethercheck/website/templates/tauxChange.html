@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span class="label label-success pull-right">Dollar</span>
@@ -12,41 +12,58 @@
                     </div>
                     <div class="panel-body">
                         <h1 class="no-margins">${{usd}}</h1>
-                        <div class="text-success">+4% <i class="fa fa-bolt"></i></div>
-                        <small>Increasing</small>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span class="label label-info pull-right">Euros</span>
                         <h4>Cours</h4>
                     </div>
                     <div class="panel-body">
-                        <h1 class="no-margins">{{eur}}€</h1>
-                        <div class="text-info">+2% <i class="fa fa-level-up"></i></div>
-                        <small>Increasing</small>
+                        <h1 class="no-margins">{{eur}} €</h1>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <span class="label label-success pull-right">Bitcoin</span>
                         <h4>Cours</h4>
                     </div>
                     <div class="panel-body">
-                        <h1 class="no-margins">{{bit}}€</h1>
-                        <div class="text-info">+2% <i class="fa fa-level-up"></i></div>
-                        <small>Increasing</small>
+                        <h1 class="no-margins">{{bit}} Btc</h1>
                     </div>
                 </div>
             </div>
-
-        </div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>Dernières Variations du Cours de l'Ethereum</h2>
+			</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-4">
+								<h2>Depuis 1h</h2>
+									<div class="text-info">{{evo_1h}}%</div>
+							</div>
+							<div class="col-md-4">
+								<h2>Depuis 24h</h2>
+									<div class="text-info">{{evo_24h}}%</div>
+							</div>
+							<div class="col-md-4">
+								<h2>Depuis une Semaine</h2>
+									<div class="text-info">{{evo_7d}}%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+     </div>
 
 
 {% endblock %}
