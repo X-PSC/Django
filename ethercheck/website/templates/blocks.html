@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">
+                        <h5>Historique des Blocks</h5>
+                    </div>
+                    <div class="panel panel-body">               
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="transactions_list">
+                                <thead>
+                                    <tr>
+                                        <th>Block number</th>
+                                        <th>Date</th>
+                                        <th>Miner</th>
+                                        <th>Reward</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for t in blocks %}
+                                    <tr>
+                                        <td>{{t.blockNumber}}</td>
+                                        <td>{{t.date}}</td>
+                                        <td>{{t.reward}}</td>
+                                        <td>{{t.miner}}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#transactions_list').DataTable( {
+                "paging":   false,
+                "ordering": false,
+                "info":     false
+            } );
+
+        });
+    </script>
+    
+{% endblock %}

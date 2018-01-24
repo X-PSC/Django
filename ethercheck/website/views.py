@@ -24,6 +24,15 @@ def alias(request):
 def graph(request):
 	return render(request, 'graph.html', locals())
 
+def visgraph2(request):
+	return render(request, 'visgraph2.html', locals())
+
+def visgraph3(request):
+	return render(request, 'visgraph3.html', locals())
+
+def visgraph(request):
+	return render(request, 'visgraph.html', locals())
+
 def graphData(request):
 	return render_to_response('graph.gexf')
 
