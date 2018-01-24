@@ -42,17 +42,16 @@
             <li><a href="blocks">Blocks<span></a></li>
             <li><a href="alias">Alias</a></li>
             <li><a href="tauxChange">Exchange Rates</a></li>
-            <li><a href="graph">Graphic</a></li>
+
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Graphic <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="graph">Avant</a></li>
+
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="visgraph">Test Json</a></li>
+              <li><a href="visgraph2">Beau</a></li>
+              <li><a href="visgraph3">Beau autre</a></li>
               </ul>
             </li>
           </ul>
@@ -78,13 +77,14 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-    {% block content %}{% endblock %}
-
+    
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap/bootstrap.min.js"></script>
     <script src="static/js/chartJs/Chart.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    {% block content %}{% endblock %}
+
 
     <div class="footer">
         <strong>Copyright</strong> Alefsen-Carossio-Dallard-Delcros-Fickinger-Kobrosly-Nazaret- &copy; 2017

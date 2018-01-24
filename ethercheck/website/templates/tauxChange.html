@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+    <script>
+	$(document).ready(function($) {
+    $('.smiley').html('<i class="fa fa-bolt"></i>')
+	});
+	</script>
+    
     <div class="container">
 
         <div class="row">
@@ -48,7 +55,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<h2>Depuis 1h</h2>
-									<div class="text-info">{{evo_1h}}%</div>
+									<div class="text-info">{{evo_1h}}% <span class="smiley"></span></div>
 									<par>{{inc_1h}}...</par>
 							</div>
 							<div class="col-md-4">
@@ -67,6 +74,5 @@
 			</div>
 		</div>
      </div>
-
 
 {% endblock %}
