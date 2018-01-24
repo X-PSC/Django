@@ -2,11 +2,20 @@
 
 {% block content %}
 
-    <script>
+	<script>
 	$(document).ready(function($) {
-    $('.smiley').html('<i class="fa fa-bolt"></i>')
+		$('.smiley').each(function(index) {
+			a=$(this).attr('id');
+			if(a>10) {
+				$(this).html('<i class="fa fa-bolt"></i>');
+			} else if (a<0) {
+				$(this).html('<i class="fa fa-level-down"></i>');
+			} else {
+				$(this).html('<i class="fa fa-level-up"></i>');
+			}
+		});
 	});
-	</script>
+	</script> 
     
     <div class="container">
 
@@ -55,17 +64,17 @@
 						<div class="row">
 							<div class="col-md-4">
 								<h2>Depuis 1h</h2>
-									<div class="text-info">{{evo_1h}}% <span class="smiley"></span></div>
+									<div class="text-info">{{evo_1h}}% <span class="smiley" id="{{evo_1h}}"></span></div>
 									<par>{{inc_1h}}...</par>
 							</div>
 							<div class="col-md-4">
 								<h2>Depuis 24h</h2>
-									<div class="text-info">{{evo_24h}}%</div>
+									<div class="text-info">{{evo_24h}}% <span class="smiley" id="{{evo_24h}}"></span></div>
 									<par>{{inc_24h}}...</par>
 							</div>
 							<div class="col-md-4">
 								<h2>Depuis une Semaine</h2>
-									<div class="text-info">{{evo_7d}}%</div>
+									<div class="text-info">{{evo_7d}}% <span class="smiley" id="{{evo_7d}}"></span></div>
 									<par>{{inc_7d}}...</par>
 							</div>
 						</div>
