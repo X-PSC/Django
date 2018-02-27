@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+  #graph-container {
+    width: 600px;
+    height: 400px;
+    text-align: center;
+  }
+  
+    .links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+    }
+
+</style>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">
+                        <h5>Graph</h5>
+                    </div>
+                    <div class="panel panel-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div id="graph-container">
+                            <svg width="600" height="400" ></svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="static/js/vis.js"></script>
+{% endblock %}

@@ -22,7 +22,7 @@ def alias(request):
 	return render(request, 'alias.html', locals())
 
 def graph(request):
-	return render(request, 'graph.html', locals())
+	return render(request, 'graphD3JS.html', locals())
 
 def visgraph2(request):
 	return render(request, 'visgraph2.html', locals())
