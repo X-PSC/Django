@@ -6,6 +6,20 @@
     "configurations": [
         
         {
+            "name": "Python",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceRoot}/ethercheck/clustering/aeac.py",
+            "cwd": "${workspaceRoot}/ethercheck/clustering",
+            "env": {},
+            "envFile": "${workspaceRoot}/ethercheck/clustering/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
             "name": "Django",
             "type": "python",
             "request": "launch",
